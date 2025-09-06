@@ -11,8 +11,9 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./index.css" />
   </head>
-  <body>
+  <body class="inter">
     <!-- NAV BAR -->
     <section class="bg-[#15803D] shadow-sm">
       <div class="navbar w-full mx-auto px-10">
@@ -34,6 +35,22 @@
           >
         </div>
       </div>
+    </section>
+    <!-- BANNER -->
+    <section class="flex flex-col lg:flex-row justify-between items-center bg-[#cff0dc]">
+      <div class="hidden lg:block"><img src="./assets/hero-leaf1.png" alt="" /></div>
+      <div class="text-center px-4 lg:px-20 py-10 lg:py-20 ">
+        <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
+        <p class="font-light my-10">
+          Join our mission to plant 1 million trees and make the Earth greener
+          for future <br />
+          generations.
+        </p>
+        <button class="btn bg-amber-400 border-none rounded-4xl text-[#15803D]">
+          Get Involved
+        </button>
+      </div>
+      <div class="hidden lg:block"><img src="./assets/hero-leaf2.png" alt="" /></div>
     </section>
   </body>
 </html>
