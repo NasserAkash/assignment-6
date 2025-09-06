@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
-</head>
-<body>
-    
-</body>
+    <!-- Daisy UL and Tailwind CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- NAV BAR -->
+    <section class="bg-[#15803D] shadow-sm">
+      <div class="navbar w-full mx-auto px-10">
+        <div class="navbar-start">
+          <p class="font-bold text-amber-50 text-lg">🌱Green Earth</p>
+        </div>
+
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 space-x-5 text-white">
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-end">
+          <a class="btn bg-amber-400 border-none rounded-4xl text-[#15803D]"
+            >Plant a Tree</a
+          >
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
