@@ -12,16 +12,18 @@ function hideSpinner() {
 }
 
 
-const loadCategory = async () => {
-  try {
-    const res = await fetch("https://openapi.programming-hero.com/api/categories");
-    const data = await res.json();
-    const categories = data.categories;
-    showCategory(categories);
-  } catch (err) {
-    console.error("Error fetching categories:", err);
-  }
-};
+function loadCategory() {
+  fetch("https://openapi.programming-hero.com/api/categories")
+    .then(res => res.json())
+    .then(data => {
+      const categories = data.categories;
+      showCategory(categories);
+    })
+    .catch(err => {
+      console.error("Error fetching categories:", err);
+    });
+}
+
 
 const showCategory = (categories) => {
   CategoryList.innerHTML = "";
