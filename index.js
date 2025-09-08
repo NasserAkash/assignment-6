@@ -30,7 +30,7 @@ const showCategory = (categories) => {
     document.querySelectorAll("#category-list li").forEach((item) => {
       item.classList.remove("bg-[#15803d]", "text-white");
     });
-    allTreesBtn.classList.remove("bg-[#15803d]", "text-white"); // reset All Trees
+    allTreesBtn.classList.remove("bg-[#15803d]", "text-white");
   };
 
   categories.forEach((cat) => {
@@ -158,15 +158,16 @@ function addToCart(plant) {
   if (emptyCartMsg) emptyCartMsg.style.display = "none";
 
   cart.push(plant);
-
   total += plant.price;
+
+  alert(`${plant.name} added to cart! Price: ৳${plant.price}`);
 
   renderCart();
 }
 
 function removeFromCart(index) {
   total -= cart[index].price;
-  cart.splice(index, 1); 
+  cart.splice(index, 1);
   renderCart();
 }
 
@@ -181,10 +182,12 @@ function renderCart() {
       li.className =
         "flex justify-between items-center bg-gray-100 px-3 py-2 rounded-md";
 
+    
       li.innerHTML = `
-        <span>${item.name}</span>
+        <span>${item.name} - ৳${item.price}</span>
         <button class="text-red-500 hover:text-red-700 font-bold">❌</button>
       `;
+
       li.querySelector("button").addEventListener("click", () => {
         removeFromCart(index);
       });
@@ -192,5 +195,6 @@ function renderCart() {
       cartItemsContainer.appendChild(li);
     });
   }
+
   cartTotal.textContent = `৳${total}`;
 }
