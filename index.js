@@ -3,6 +3,7 @@ const plantCategory = document.getElementById("card-container");
 const allTreesBtn = document.getElementById("allTrees");
 const spinner = document.getElementById("loadingSpinner");
 
+
 function showSpinner() {
   spinner.classList.remove("hidden");
 }
@@ -10,11 +11,10 @@ function hideSpinner() {
   spinner.classList.add("hidden");
 }
 
+
 const loadCategory = async () => {
   try {
-    const res = await fetch(
-      "https://openapi.programming-hero.com/api/categories"
-    );
+    const res = await fetch("https://openapi.programming-hero.com/api/categories");
     const data = await res.json();
     const categories = data.categories;
     showCategory(categories);
@@ -50,6 +50,7 @@ const showCategory = (categories) => {
   });
 };
 
+
 const loadPlantsbyCategory = (catId) => {
   showSpinner();
   fetch(`https://openapi.programming-hero.com/api/category/${catId}`)
@@ -71,15 +72,14 @@ const loadAllPlants = () => {
     .finally(() => hideSpinner());
 };
 
+
 const showPlantsbyCategory = (plants) => {
   plantCategory.innerHTML = "";
   plants.forEach((plant) => {
     plantCategory.innerHTML += `
       <div class="bg-white rounded-2xl shadow-sm p-4 flex flex-col">
         <div class="w-[250px] h-[200px] mx-auto rounded-lg overflow-hidden">
-          <img src="${plant.image}" alt="${
-      plant.name
-    }" class="w-full h-full object-cover"/>
+          <img src="${plant.image}" alt="${plant.name}" class="w-full h-full object-cover"/>
         </div>
         <h2 class="mt-4 font-semibold text-lg text-green-700 cursor-pointer hover:underline"
           onclick='openModal(${JSON.stringify(plant)})'>${plant.name}</h2>
@@ -99,6 +99,7 @@ const showPlantsbyCategory = (plants) => {
     `;
   });
 };
+
 
 const modal = document.getElementById("treeModal");
 const modalContent = document.getElementById("modalContent");
@@ -125,8 +126,10 @@ modal.addEventListener("click", (e) => {
   if (e.target === modal) modal.classList.add("hidden");
 });
 
+
 allTreesBtn.addEventListener("click", () => {
   loadAllPlants();
+
 
   document.querySelectorAll("#category-list li").forEach((item) => {
     item.classList.remove("bg-[#15803d]", "text-white");
@@ -136,9 +139,13 @@ allTreesBtn.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadCategory();
-  loadAllPlants();
+  loadAllPlants(); 
   allTreesBtn.classList.add("bg-[#15803d]", "text-white"); // highlight default
 });
+
+
+
+
 
 const cartItemsContainer = document.getElementById("cartItems");
 const emptyCartMsg = document.getElementById("emptyCart");
@@ -159,7 +166,7 @@ function addToCart(plant) {
 
 function removeFromCart(index) {
   total -= cart[index].price;
-  cart.splice(index, 1);
+  cart.splice(index, 1); 
   renderCart();
 }
 
